@@ -2,7 +2,7 @@
 # verify.sh - re-derive every published claim on the machine that made them.
 # Read-only. Emits no file contents.
 set -uo pipefail
-WS="${WS:-/home/aria/Projects/steven-workspace/makarios-media}"
+WS="${HARNESS_REPO:-$HOME/harness-repo}"
 LEDGER="$(dirname "$0")/../evidence/LEDGER.json"
 
 hr(){ printf '\n== %s ==\n' "$1"; }
@@ -15,10 +15,17 @@ ok = miss = bad = 0
 for a in led["sealed_artifacts"]:
     if a["status"] != "SEALED":
         print(f"  SKIP   {a['label']} (not present)"); miss += 1; continue
-    if not os.path.exists(a["path"]):
-        print(f"  ABSENT {a['label']}"); miss += 1; continue
+    # Ledger paths are published relative to the private repo (or ~/) so the
+    # repository carries no machine layout. Resolve them back here.
+    p = a["path"]
+    if p.startswith("~/"):
+        p = os.path.expanduser(p)
+    elif not p.startswith("/"):
+        p = os.path.join(os.environ.get("HARNESS_REPO", ""), p)
+    if not os.path.exists(p):
+        print(f"  ABSENT {a['label']}  ({p})"); miss += 1; continue
     h = hashlib.sha256()
-    with open(a["path"], "rb") as f:
+    with open(p, "rb") as f:
         for c in iter(lambda: f.read(1 << 20), b""):
             h.update(c)
     if h.hexdigest() == a["sha256"]:

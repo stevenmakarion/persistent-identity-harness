@@ -4,7 +4,7 @@ from the artifacts. Never reads any private file: it reads the ledger only."""
 import json, os
 from datetime import datetime
 
-R = "/vault/public-repos/persistent-identity-harness"
+R = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 led = json.load(open(f"{R}/evidence/LEDGER.json"))
 
 L = []

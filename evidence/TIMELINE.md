@@ -3,7 +3,7 @@
 Rendered from [`LEDGER.json`](LEDGER.json) by `scripts/make_timeline.py`.
 Nothing here is typed by hand, so the prose cannot drift from the artifacts.
 
-Ledger generated: `2026-08-23T03:18:33.196078+00:00`
+Ledger generated: `2026-08-23T03:52:15.648976+00:00`
 
 ---
 

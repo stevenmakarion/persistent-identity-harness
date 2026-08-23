@@ -13,8 +13,8 @@ Anyone holding the private artifact can verify a claim by running
 import hashlib, json, os, subprocess, sys
 from datetime import datetime, timezone
 
-WS = "/home/aria/Projects/steven-workspace/makarios-media"
-OUT = "/vault/public-repos/persistent-identity-harness/evidence"
+WS = os.environ.get("HARNESS_REPO", os.path.expanduser("~/harness-repo"))
+OUT = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "evidence")
 
 
 def sha256_of(path):
@@ -36,7 +36,9 @@ def fingerprint(path, label, note=""):
     st = os.stat(path)
     return {
         "label": label,
-        "path": path,
+        # Published relative to the private repo root, never as an absolute
+        # path: the machine's directory layout is not this repository's business.
+        "path": path.replace(WS + "/", "").replace("/home/aria/", "~/"),
         "sha256": sha256_of(path),
         "bytes": st.st_size,
         "mtime_utc": iso(st.st_mtime),
@@ -112,12 +114,30 @@ SYSTEM = [
 # published it passes this gate. The gate FAILS CLOSED: an unrecognised match
 # aborts the build rather than shipping. Detection that cannot stop the
 # pipeline is not detection.
-DENY = [
-    "money", "bank", "desk", "trade", "trading", "alpaca", "broker",
-    "client", "invoice", "password", "token", "api key", "secret",
-    "bryan", "elena", "rodney", "steven", "aleithyia",
-    "intimate", "heart capture", "bedtime", "medical", "diagnosis",
-]
+# The live denylist is NOT in this repository, deliberately: a list of terms
+# that must never be published is itself a list of private things, and shipping
+# it would leak exactly what it exists to protect. It is loaded from a file
+# outside the repo. If that file is missing the gate FAILS CLOSED and the build
+# refuses to run, rather than quietly publishing with no gate at all.
+DENY_FILE = os.path.expanduser(os.environ.get(
+    "RECEIPTS_DENYLIST", "~/.config/receipts-denylist.txt"))
+DENY_EXAMPLE = ["money", "invoice", "password", "api key", "secret",
+                "credential", "medical"]
+
+
+def load_denylist():
+    if not os.path.exists(DENY_FILE):
+        sys.exit(
+            f"REFUSING TO BUILD: no denylist at {DENY_FILE}\n"
+            f"  Create it with one lowercase term per line: names of people,\n"
+            f"  clients, products, and topics that must never be published.\n"
+            f"  A gate that cannot load its rules must not run. Fail closed.\n"
+            f"  (Example terms, not a substitute: {', '.join(DENY_EXAMPLE)})")
+    return [w.strip().lower() for w in open(DENY_FILE)
+            if w.strip() and not w.startswith("#")]
+
+
+DENY = None  # populated in main()
 
 
 def subject_is_clean(subject):
@@ -126,6 +146,8 @@ def subject_is_clean(subject):
 
 
 def main():
+    global DENY
+    DENY = load_denylist()
     os.makedirs(OUT, exist_ok=True)
     led = {
         "generated_utc": datetime.now(timezone.utc).isoformat(),
@@ -162,9 +184,11 @@ def main():
             rows.append({"commit": parts[0], "date": parts[1],
                          "tree": parts[2], "subject": parts[3]})
         led["git_chain"][label] = rows
+    # The reason names no terms: publishing "matched: X, Y" leaks the denylist
+    # one word at a time, which is the same disclosure it exists to prevent.
     led["redactions"] = [
-        {"commit": c, "reason": f"subject matched: {', '.join(h)}"}
-        for c, _s, h in blocked
+        {"commit": c, "reason": "subject withheld: unrelated private work"}
+        for c, _s, _h in blocked
     ]
 
     for label, cmd in SYSTEM:

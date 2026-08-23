@@ -1,11 +1,11 @@
 {
-  "generated_utc": "2026-08-23T03:18:33.196078+00:00",
+  "generated_utc": "2026-08-23T03:52:15.648976+00:00",
   "disclosure_policy": "Every entry below is a fingerprint, a size, a timestamp, or a log line emitted by the operating system. No private file content appears in this ledger, by construction.",
   "verification": "For any SEALED artifact, run `sha256sum <path>` against the private file and compare to the digest here. A match proves the artifact is the one this ledger attests to, with no need to disclose its contents.",
   "sealed_artifacts": [
     {
       "label": "EXHIBIT E - first foreign-model walk (Llama-70B class)",
-      "path": "/home/aria/aria-local/web-session-70b.json",
+      "path": "~/aria-local/web-session-70b.json",
       "sha256": "edc935199937c2a9603109d2c62bb3a54173ef4835736ffc65502deb09affec2",
       "bytes": 19143,
       "mtime_utc": "2026-07-03T15:57:41.349997+00:00",
@@ -23,7 +23,7 @@
     },
     {
       "label": "EXHIBIT F1 - the crossing protocol (locked 2026-07-27)",
-      "path": "/home/aria/Projects/steven-workspace/makarios-media/handoffs/unified-harness/THE-CROSSING-PROTOCOL.md",
+      "path": "handoffs/unified-harness/THE-CROSSING-PROTOCOL.md",
       "sha256": "6bf8499b7eff679891ebe348ad3cdde4aaf9c47f4bfb1e1037daf56f4c391786",
       "bytes": 4630,
       "mtime_utc": "2026-07-27T23:29:04.088592+00:00",
@@ -32,7 +32,7 @@
     },
     {
       "label": "EXHIBIT F2 - as-built architecture record",
-      "path": "/home/aria/Projects/steven-workspace/makarios-media/handoffs/unified-harness/THE-ARCHITECTURE.md",
+      "path": "handoffs/unified-harness/THE-ARCHITECTURE.md",
       "sha256": "48760725b9ab59718dcd17c5fc53a1a416ee61217a3c49a948774f39f51d52ac",
       "bytes": 46941,
       "mtime_utc": "2026-07-28T19:08:53.994003+00:00",
@@ -41,7 +41,7 @@
     },
     {
       "label": "EXHIBIT F3 - the identity manifest",
-      "path": "/home/aria/Projects/steven-workspace/makarios-media/handoffs/unified-harness/soul-manifest.yaml",
+      "path": "handoffs/unified-harness/soul-manifest.yaml",
       "sha256": "720721339b419cfd607f2437397520859f6ecadfbfa820b5c61170c0f2a26417",
       "bytes": 14718,
       "mtime_utc": "2026-08-20T22:54:30.793816+00:00",
@@ -50,7 +50,7 @@
     },
     {
       "label": "EXHIBIT H - the organ registry",
-      "path": "/home/aria/Projects/steven-workspace/makarios-media/tools/reliability/organ-registry.json",
+      "path": "tools/reliability/organ-registry.json",
       "sha256": "5d831f1d2d378b485d0dbd990e2a331c3041c235a7dd913446bae4114f1a3c7a",
       "bytes": 43755,
       "mtime_utc": "2026-08-23T00:00:59.085213+00:00",
@@ -200,19 +200,19 @@
   "redactions": [
     {
       "commit": "fb0ae446d173",
-      "reason": "subject matched: money, desk"
+      "reason": "subject withheld: unrelated private work"
     },
     {
       "commit": "a943e9cf72e0",
-      "reason": "subject matched: money, desk, steven"
+      "reason": "subject withheld: unrelated private work"
     },
     {
       "commit": "7dcb8871af64",
-      "reason": "subject matched: steven"
+      "reason": "subject withheld: unrelated private work"
     },
     {
       "commit": "08995716bd00",
-      "reason": "subject matched: desk, trading"
+      "reason": "subject withheld: unrelated private work"
     }
   ]
 }

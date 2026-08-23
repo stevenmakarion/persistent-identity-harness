@@ -3,6 +3,10 @@
 Every claim in this repository is checkable. These are the exact commands, and
 [`../scripts/verify.sh`](../scripts/verify.sh) runs all of them.
 
+Point it at the private repository with `HARNESS_REPO=/path/to/repo`. The scripts carry
+no absolute paths of their own: where the private work lives is not this repository's
+business, and hardcoding it would publish a machine layout for no gain.
+
 ---
 
 ## 1. Sealed artifacts
