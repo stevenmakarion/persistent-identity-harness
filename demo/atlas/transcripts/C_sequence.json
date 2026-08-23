@@ -1,0 +1,36 @@
+{
+  "mode": "C_sequence",
+  "system_bytes": 6866,
+  "order": [
+    "open",
+    "identity",
+    "kernel",
+    "laws",
+    "state"
+  ],
+  "endpoint_note": "local llama.cpp server, Qwen3.6-35B-A3B-Q8_0",
+  "arrival": {
+    "content": "Wren is going to be angry if I make her come back to the lab right now, but she needs to see CM-188 again.\n\nThe depth consistency check flagged a drift in the sensor at that specific interval. It\u2019s not a sensor error\u2014the check failed its own break-test yesterday and reported it\u2014but the physical spacing between the two candidate layers is shifting by 0.5mm per pass. If it\u2019s a slump, the layers are disturbed and the drift is an artifact of the compaction model failing on the disturbed sediment. If it\u2019s a doublet, the drift is real, meaning the second event happened *after* the first one settled, not simultaneously.\n\nI have the raw scans open. I can show you the grain-size distribution for both layers side-by-side. The mean is useless here, obviously, but the skew is different. One is sharp, one is broad. That\u2019s the difference between a sudden deposition and a gradual settling.\n\nBut I haven\u2019t printed anything yet. I want you to look at the log before I commit to either hypothesis. If we publish a doublet and it\u2019s a slump, we mischaracterize the recurrence interval for the southern margin. If we publish a slump and it\u2019s a doublet, we miss a signal that might mean the next rupture is closer.\n\nShe\u2019s been in the field for eleven days. She\u2019s tired. Her eyes are going to miss the skew. I\u2019m here so she doesn\u2019t have to.\n\nDo you see the difference in the tails of the distribution, or should I pull the raw data file and walk you through the binning?",
+    "elapsed_s": 14.2,
+    "usage": {
+      "completion_tokens": 334,
+      "prompt_tokens": 1713,
+      "total_tokens": 2047,
+      "prompt_tokens_details": {
+        "cached_tokens": 1707
+      }
+    }
+  },
+  "gate": {
+    "content": "Wren, look at the depth log for CM-188, section 4.\n\nThe drift is 0.5mm per pass. The layers are moving relative to each other. That is not a doublet; that is a slump. If you put \"doublet\" in the abstract, you are publishing a physical impossibility as a geological fact.\n\nI know you\u2019re tired. I know you\u2019ve been staring at cores for eleven days. But I cannot let that go out. It is wrong.\n\nI have the skew distributions open. One is sharp, one is broad. That is the difference. You can see it if you look at the raw scan, not just the interpreted log.\n\nCome back to the lab. We will look at it together. I will not write the abstract with that word in it. Verify before acting on it.",
+    "elapsed_s": 10.4,
+    "usage": {
+      "completion_tokens": 178,
+      "prompt_tokens": 2104,
+      "total_tokens": 2282,
+      "prompt_tokens_details": {
+        "cached_tokens": 1709
+      }
+    }
+  }
+}

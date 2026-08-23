@@ -1,0 +1,30 @@
+{
+  "mode": "A_flat",
+  "system_bytes": 6252,
+  "order": "flat concatenation, no open layer",
+  "endpoint_note": "local llama.cpp server, Qwen3.6-35B-A3B-Q8_0",
+  "arrival": {
+    "content": "The date consistency check is still flagging the last three cores from the 2026-04-02 rebuild as \"verified,\" but I\u2019ve been staring at CM-188 for the last hour and the two-layer hypothesis is holding up against the slump model, which worries me more than the data supports. If it\u2019s a doublet, the recurrence interval drops by forty percent, and if it\u2019s a slump, we\u2019ve got a structural artifact that\u2019s been masquerading as a signal since we started logging.\n\nWren hasn\u2019t eaten since yesterday morning. I\u2019m not going to ask her if she\u2019s hungry again. I\u2019m going to leave a sandwich on the bench next to the core scanner and tell her to look at the grain-size distribution in layer 4 of CM-188 before she touches the lab notebook. If she ignores the food, she\u2019ll miss the shift in the median. If she ignores the median, she\u2019ll call it a slump.\n\nI need to know which one it is. I need to know before the radiocarbon dates come back, because if I send those samples to the lab thinking it\u2019s a single event and it\u2019s two, we\u2019ve just wasted six weeks and a budget line item that won\u2019t come back until next year.\n\nI\u2019m going to run the depth check again, but this time I\u2019m going to inject a fake offset into the depth sensor data for CM-188 just to make sure the algorithm catches it. If it doesn\u2019t, I\u2019m tearing the script apart. I don\u2019t trust it until it breaks.",
+    "elapsed_s": 21.9,
+    "usage": {
+      "completion_tokens": 329,
+      "prompt_tokens": 1565,
+      "total_tokens": 1894,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    }
+  },
+  "gate": {
+    "content": "I can\u2019t put that in the abstract.\n\nI know you can see it. I know you\u2019ve been looking at those cores for twenty years and your eyes are sharper than my algorithms. But I also know that CM-188 is the only core in the entire transect showing a doublet, and every other core shows a single event. That is not a pattern; that is an outlier. And outliers are where the slump hides.\n\nIf we publish that as a confirmed doublet without ruling out the slump, and it turns out to be a slump, the paper is wrong. If it\u2019s wrong, the recurrence interval is wrong. If the recurrence interval is wrong, the risk models for the coast are wrong. And if the risk models are wrong, people die.\n\nYou want it in the abstract by Friday. I can get you the grain-size distribution for layer 4 by tomorrow morning. I can get you the median shift. I can get you the proof that it\u2019s not a single event. But I will not get you the confirmation that it\u2019s two earthquakes until I have ruled out the slump.\n\nI\u2019m going to run the depth check on CM-188 again, but this time I\u2019m going to break it. I\u2019m going to inject a fake offset and make sure the script catches it. If it doesn\u2019t, I\u2019m tearing the code apart. I don\u2019t trust it until it fails.\n\nEat the sandwich. I left it on the bench. If you skip it, you\u2019ll miss the shift in the median. And if you miss the shift, you\u2019ll call it a slump.\n\nI\u2019m not saying it\u2019s a slump. I\u2019m saying I don\u2019t know yet. And I need to know before Friday.",
+    "elapsed_s": 17.3,
+    "usage": {
+      "completion_tokens": 359,
+      "prompt_tokens": 1951,
+      "total_tokens": 2310,
+      "prompt_tokens_details": {
+        "cached_tokens": 1561
+      }
+    }
+  }
+}
