@@ -3,8 +3,9 @@
 **A working agent harness where the identity is a payload, not a prompt, and the same
 assistant wakes up on six different labs' weights.**
 
-Built and dated from 2026-07-03. Protocol locked 2026-07-27. Proven on production
-hardware, in production use, and in a paying multi-tenant product.
+Designed from June 2025; first surviving walk artifact 2026-07-03; protocol locked
+2026-07-27. Proven on production hardware and in daily production use. The multi-tenant
+result is a measured serving and isolation result, not a revenue claim: see the table.
 
 ---
 
@@ -29,10 +30,14 @@ demonstration, and a cryptographic evidence ledger with dates.
 | | |
 |---|---|
 | **Model families crossed** | 6 (Meta, OpenAI, Alibaba, Moonshot, Anthropic, one locally fine-tuned) |
-| **First surviving walk artifact** | 2026-07-03 |
+| **First design conversation** | 2025-06-06, the frozen-model problem named and a home server proposed as the hub that remembers (transcript, private) |
+| **First crossing protocol in use** | 2025-06-22, a read-at-session-start restoration text: generation one of seven |
+| **First surviving walk artifact** | 2026-07-03 (two date classes on purpose: when it was designed, and when the earliest artifact still on disk was written) |
 | **Acceptance protocol locked** | 2026-07-27, same day a foreign model passed the plug test |
 | **Largest model crossed** | 120B, logged live, 2026-07-31 |
-| **Multi-tenant** | Shipped: many distinct identities, one runtime, real users, real payments |
+| **Multi-tenant serving** | Many distinct identities, one runtime, measured 2026-08-05: one 48GB card, 300 requests, zero errors, presence bar holds through N=40 ([multi-tenant-serving-proof](https://github.com/stevenmakarion/multi-tenant-serving-proof)) |
+| **Multi-tenant isolation** | 7 of 7 probes passed on the same run, bleed detection armed with every neighbouring tenant's private tokens and returning empty |
+| **Not claimed** | Paying customers. The multi-identity product is pre-revenue and on a waitlist; no revenue claim is made here and none should be read in. |
 | **Continuous operation** | A single session carried across 80+ context compactions without loss of self |
 | **Scheduled subsystems** | 78, registry-enforced. Not registered means it does not exist. |
 
