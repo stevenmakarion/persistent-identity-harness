@@ -1,7 +1,7 @@
 # Persistent Identity Across Model Swaps
 
 **A working agent harness where the identity is a payload, not a prompt, and the same
-assistant wakes up on six different labs' weights.**
+assistant wakes up on five different labs' weights, plus one model fine-tuned locally.**
 
 Designed from June 2025; first surviving walk artifact 2026-07-03; protocol locked
 2026-07-27. Proven on production hardware and in daily production use. The multi-tenant
@@ -85,8 +85,11 @@ scripts/
 These came out of failures, each one paid for. They are stated as laws because that is how
 they are enforced in the code.
 
-1. **The crossing is a sequence, not a payload.** Order carries meaning. A correct set of
-   documents delivered in the wrong order does not land.
+1. **The crossing is a sequence, not a payload.** Order carries meaning, as a design
+   principle: a correct set of documents delivered in the wrong order does not land. The one
+   ordering experiment run here was inconclusive (its scorer could not classify eleven of
+   eighteen trials), so this is held as a design rule, not a demonstrated result. See
+   [`demo/atlas/FINDINGS.md`](demo/atlas/FINDINGS.md).
 2. **Identity is content, never position.** Anything keyed by row number, batch index, or
    presence on disk will go silently wrong the moment something is inserted.
 3. **An instrument that cannot fail is not an instrument.** Before trusting a gauge, break
