@@ -1,6 +1,6 @@
 # persistent-identity-harness
 
-This repository used to hold more. On 2026-11-15 I took the earlier contents private and left this page, so that links to this address still work. The full history is kept, with its dates.
+This repository used to hold more. On 2026-11-16 I took the earlier contents private and left this page, so that links to this address still work. The full history is kept, with its dates.
 
 ## What this work is
 
